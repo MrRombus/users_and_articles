@@ -281,11 +281,15 @@ class ArticleStorage:
         self._log.info('Article and all users were shown')
 
     def edit_user(self, nickname, new_nickname=None, new_name=None, new_surname=None):
-        user_id = self._find_user_id(nickname)
-        self._cursor.execute("""
-            UPDATE User SET nickname=?, name=?, surname=? WHERE id=?
-        """, (new_nickname, new_name, new_surname, user_id))
-        self._conn.commit()
+        try:
+            user_id = self._find_user_id(nickname)
+            self._cursor.execute("""
+                UPDATE User SET nickname=?, name=?, surname=? WHERE id=?
+            """, (new_nickname, new_name, new_surname, user_id))
+            self._conn.commit()
+        except UserDoestNotExists:
+            self._log.warning('User does not exist')
+            return False
         return True
 
 
