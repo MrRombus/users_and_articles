@@ -177,8 +177,8 @@ class ArticleWindow(Frame):
         self.btn_del_user = Button(self, text='Удалить', bg='red', command=self.del_user)
         self.btn_del_user.grid(row=9, column=0)
 
-        self.btn_del_article = Button(self, text='Редактировать Статью', bg='yellow', command=self.ed_article)
-        self.btn_del_article.grid(row=7, column=1)
+        self.btn_edit_article = Button(self, text='Редактировать Статью', bg='yellow', command=self.ed_article)
+        self.btn_edit_article.grid(row=7, column=1)
 
         self.btn_del_article = Button(self, text='Удалить Статью', bg='red', command=self.del_article)
         self.btn_del_article.grid(row=8, column=1)

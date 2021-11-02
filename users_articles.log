@@ -1521,3 +1521,166 @@ INFO 2021-11-02 17:03:30,463 article All articles were got
 INFO 2021-11-02 17:03:43,217 article All users were got
 INFO 2021-11-02 17:03:43,218 article All articles were got
 INFO 2021-11-02 17:03:44,286 article All articles were got
+INFO 2021-11-02 17:50:35,479 article Created four tables
+INFO 2021-11-02 17:50:35,694 article User was created
+INFO 2021-11-02 17:50:35,878 article Article Space is published
+INFO 2021-11-02 17:50:35,879 article Article Space1 not found
+WARNING 2021-11-02 17:50:35,879 article Article Space1 not found
+INFO 2021-11-02 17:50:36,554 article tables were deleted
+INFO 2021-11-02 17:50:37,102 article Created four tables
+INFO 2021-11-02 17:50:37,221 article User was created
+INFO 2021-11-02 17:50:37,315 article Article Space is published
+INFO 2021-11-02 17:50:37,420 article Comment from user user_1 has been created
+INFO 2021-11-02 17:50:37,554 article Comment from user user_1 has been created
+INFO 2021-11-02 17:50:38,268 article tables were deleted
+INFO 2021-11-02 17:50:38,700 article Created four tables
+INFO 2021-11-02 17:50:38,786 article User was created
+INFO 2021-11-02 17:50:39,195 article tables were deleted
+INFO 2021-11-02 17:50:39,664 article Created four tables
+INFO 2021-11-02 17:50:39,984 article User was created
+INFO 2021-11-02 17:50:40,077 article Article Space is published
+INFO 2021-11-02 17:50:40,186 article Article Space has been deleted
+INFO 2021-11-02 17:50:40,744 article tables were deleted
+INFO 2021-11-02 17:50:41,315 article Created four tables
+INFO 2021-11-02 17:50:41,425 article User was created
+INFO 2021-11-02 17:50:41,529 article User was created
+INFO 2021-11-02 17:50:41,626 article User was created
+INFO 2021-11-02 17:50:41,930 article Article Space is published
+INFO 2021-11-02 17:50:42,105 article Article Space_2 is published
+INFO 2021-11-02 17:50:42,283 article Article Medicine is published
+INFO 2021-11-02 17:50:42,381 article Article Databases is published
+INFO 2021-11-02 17:50:42,483 article User user_1 has been deleted
+INFO 2021-11-02 17:50:42,484 article All users were got
+INFO 2021-11-02 17:50:42,484 article All articles were got
+INFO 2021-11-02 17:50:42,882 article tables were deleted
+INFO 2021-11-02 17:50:43,481 article Created four tables
+INFO 2021-11-02 17:50:43,632 article User was created
+INFO 2021-11-02 17:50:43,747 article User was created
+INFO 2021-11-02 17:50:43,940 article User user_1 has been deleted
+INFO 2021-11-02 17:50:43,940 article All users were got
+INFO 2021-11-02 17:50:44,305 article tables were deleted
+INFO 2021-11-02 17:50:44,705 article Created four tables
+INFO 2021-11-02 17:50:44,798 article User was created
+INFO 2021-11-02 17:50:44,902 article User was created
+INFO 2021-11-02 17:50:44,905 article User user_3 not found
+WARNING 2021-11-02 17:50:44,905 article User user_3 not found
+INFO 2021-11-02 17:50:44,906 article User user_3 not found
+WARNING 2021-11-02 17:50:44,906 article User user_3 not found
+INFO 2021-11-02 17:50:45,314 article tables were deleted
+INFO 2021-11-02 17:50:45,885 article Created four tables
+INFO 2021-11-02 17:50:46,014 article User was created
+INFO 2021-11-02 17:50:46,151 article Article Space is published
+INFO 2021-11-02 17:50:46,234 article Article Space has been edited
+INFO 2021-11-02 17:50:46,694 article tables were deleted
+INFO 2021-11-02 17:50:47,095 article Created four tables
+INFO 2021-11-02 17:50:47,199 article User was created
+INFO 2021-11-02 17:50:47,307 article Article Space is published
+INFO 2021-11-02 17:50:47,309 article All articles were got
+INFO 2021-11-02 17:50:47,848 article tables were deleted
+INFO 2021-11-02 17:50:48,364 article Created four tables
+INFO 2021-11-02 17:50:48,472 article User was created
+INFO 2021-11-02 17:50:48,751 article Article Space is published
+INFO 2021-11-02 17:50:48,837 article User was created
+INFO 2021-11-02 17:50:48,939 article Article Sea is published
+INFO 2021-11-02 17:50:48,940 article All articles were got
+INFO 2021-11-02 17:50:49,363 article tables were deleted
+INFO 2021-11-02 17:50:49,783 article Created four tables
+INFO 2021-11-02 17:50:50,149 article tables were deleted
+INFO 2021-11-02 17:50:50,565 article Created four tables
+INFO 2021-11-02 17:50:50,881 article User was created
+INFO 2021-11-02 17:50:51,146 article Article Space is published
+INFO 2021-11-02 17:50:51,444 article User was created
+INFO 2021-11-02 17:50:51,681 article Article Sea is published
+INFO 2021-11-02 17:50:51,682 article Text articles was got
+INFO 2021-11-02 17:50:51,687 article Text articles was got
+INFO 2021-11-02 17:50:52,576 article tables were deleted
+INFO 2021-11-02 17:50:53,534 article Created four tables
+INFO 2021-11-02 17:50:53,710 article User was created
+INFO 2021-11-02 17:50:53,951 article User was created
+INFO 2021-11-02 17:50:53,952 article All users were got
+INFO 2021-11-02 17:50:54,958 article tables were deleted
+INFO 2021-11-02 17:50:55,543 article Created four tables
+INFO 2021-11-02 17:50:55,640 article User was created
+INFO 2021-11-02 17:50:55,641 article All users were got
+INFO 2021-11-02 17:50:56,051 article tables were deleted
+INFO 2021-11-02 17:50:56,442 article Created four tables
+INFO 2021-11-02 17:50:56,525 article User was created
+INFO 2021-11-02 17:50:56,616 article Article Space is published
+INFO 2021-11-02 17:50:56,617 article Article Space2 not found
+INFO 2021-11-02 17:50:56,993 article tables were deleted
+INFO 2021-11-02 17:50:57,482 article Created four tables
+INFO 2021-11-02 17:50:57,818 article User was created
+INFO 2021-11-02 17:50:57,999 article Article Space is published
+INFO 2021-11-02 17:50:58,000 article User user_2 not found
+INFO 2021-11-02 17:50:58,558 article tables were deleted
+INFO 2021-11-02 17:50:59,211 article Created four tables
+INFO 2021-11-02 17:50:59,320 article User was created
+INFO 2021-11-02 17:50:59,424 article Article Space is published
+INFO 2021-11-02 17:50:59,834 article tables were deleted
+INFO 2021-11-02 17:51:00,318 article Created four tables
+INFO 2021-11-02 17:51:00,320 article User user not found
+INFO 2021-11-02 17:51:00,777 article tables were deleted
+INFO 2021-11-02 17:51:01,428 article Created four tables
+INFO 2021-11-02 17:51:01,564 article User was created
+INFO 2021-11-02 17:51:01,831 article Article Space is published
+INFO 2021-11-02 17:51:01,938 article like from user user_1 has been set on Space
+INFO 2021-11-02 17:51:02,553 article tables were deleted
+INFO 2021-11-02 17:51:03,215 article Created four tables
+INFO 2021-11-02 17:51:03,350 article User was created
+INFO 2021-11-02 17:51:03,435 article Article Space is published
+INFO 2021-11-02 17:51:03,517 article like from user user_1 has been set on Space
+INFO 2021-11-02 17:51:03,518 article Mark from user user_1 already set on Space
+INFO 2021-11-02 17:51:04,112 article tables were deleted
+INFO 2021-11-02 17:52:34,828 article Created four tables
+INFO 2021-11-02 17:52:34,931 article User was created
+INFO 2021-11-02 17:52:35,339 article tables were deleted
+INFO 2021-11-02 17:52:35,730 article Created four tables
+INFO 2021-11-02 17:52:35,838 article User was created
+INFO 2021-11-02 17:52:35,941 article User was created
+INFO 2021-11-02 17:52:36,047 article User was created
+INFO 2021-11-02 17:52:36,151 article Article Space is published
+INFO 2021-11-02 17:52:36,440 article Article Space_2 is published
+INFO 2021-11-02 17:52:36,535 article Article Medicine is published
+INFO 2021-11-02 17:52:36,779 article Article Databases is published
+INFO 2021-11-02 17:52:36,860 article User user_1 has been deleted
+INFO 2021-11-02 17:52:36,861 article All users were got
+INFO 2021-11-02 17:52:36,862 article All articles were got
+INFO 2021-11-02 17:52:36,950 article User user_2 has been deleted
+INFO 2021-11-02 17:52:36,951 article All users were got
+INFO 2021-11-02 17:52:36,951 article All articles were got
+INFO 2021-11-02 17:52:37,345 article tables were deleted
+INFO 2021-11-02 17:52:37,726 article Created four tables
+INFO 2021-11-02 17:52:38,333 article tables were deleted
+WARNING 2021-11-02 17:58:01,947 article Table User does not exist
+INFO 2021-11-02 17:58:22,263 article Created four tables
+INFO 2021-11-02 17:58:22,371 article User was created
+INFO 2021-11-02 17:58:22,587 article User was created
+INFO 2021-11-02 17:58:22,837 article User was created
+INFO 2021-11-02 17:58:23,082 article Article Космос is published
+INFO 2021-11-02 17:58:23,449 article Article Уход за домашними животнами is published
+INFO 2021-11-02 17:58:23,669 article Article Рецепты вкусной еды is published
+INFO 2021-11-02 17:58:23,932 article Article Садоводство is published
+INFO 2021-11-02 17:58:23,934 article Articles were shown
+INFO 2021-11-02 17:58:23,988 article Articles were shown
+INFO 2021-11-02 17:58:23,992 article Article and all users were shown
+INFO 2021-11-02 17:58:24,182 article Comment from user Misha_K has been created
+INFO 2021-11-02 17:58:24,185 article Comments were shown
+INFO 2021-11-02 17:58:24,293 article like from user Вася228 has been set on Садоводство
+INFO 2021-11-02 17:58:24,294 article Mark from user Вася228 already set on Садоводство
+INFO 2021-11-02 17:58:24,295 article Likes and dislikes of the article Садоводство were shown
+INFO 2021-11-02 17:58:32,300 article All users were got
+INFO 2021-11-02 17:58:32,301 article All articles were got
+INFO 2021-11-02 17:58:35,907 article All articles were got
+INFO 2021-11-02 17:58:36,377 article All articles were got
+INFO 2021-11-02 17:58:36,890 article All articles were got
+INFO 2021-11-02 17:58:37,377 article All articles were got
+INFO 2021-11-02 17:58:37,699 article All articles were got
+INFO 2021-11-02 17:58:37,953 article All articles were got
+INFO 2021-11-02 17:58:38,569 article All articles were got
+INFO 2021-11-02 17:58:39,089 article Text articles was got
+INFO 2021-11-02 17:58:39,657 article Text articles was got
+INFO 2021-11-02 17:58:40,009 article Text articles was got
+INFO 2021-11-02 17:58:40,625 article All articles were got
+INFO 2021-11-02 17:58:40,945 article All articles were got
+INFO 2021-11-02 17:58:45,073 article All articles were got
+INFO 2021-11-02 17:58:45,402 article All articles were got

@@ -20,11 +20,11 @@ class TestArticleStorage(unittest.TestCase):
     def test_add_user(self):        
         self.assertTrue(self._article_storage.add_user('user_1', 'vasya', 'petrov'))
 
-    #def test_add_double_user(self):
-        #self._article_storage.add_user('Vasya', 'V', 'P')
+    def test_add_double_user(self):
+        self._article_storage.add_user('Vasya', 'V', 'P')
 
-        #with self.assertRaises(UserExists):
-            #self._article_storage.add_user('Vasya', 'T', 'T')
+        with self.assertRaises(UserExists):
+            self._article_storage.add_user('Vasya', 'T', 'T')
 
     def test_publish_done(self):
         self._article_storage.add_user('user_1', 'vasya', 'petrov')
@@ -125,6 +125,27 @@ class TestArticleStorage(unittest.TestCase):
         self._article_storage.add_user('user_2', 'petya', '1234')
         self._article_storage.delete_user('user_3')
         self.assertFalse(self._article_storage.delete_user('user_3'))
+
+    def test_delete_cascade(self):
+        self._article_storage.add_user('user_1', 'vasya', 'petrov')
+        self._article_storage.add_user('user_2', 'petya', '1234')
+        self._article_storage.add_user('user_3', 'vova', 'petrov')
+
+        self._article_storage.publish('user_1', 'Space', 'Text about space')
+        self._article_storage.publish('user_1', 'Space_2', 'Text about space_2')
+        self._article_storage.publish('user_2', 'Medicine', 'Text about medicine')
+        self._article_storage.publish('user_3', 'Databases', 'Text about databases')
+
+        self._article_storage.delete_user('user_1')
+
+        self.assertEqual(self._article_storage.get_users(), ['user_2', 'user_3'])
+        self.assertEqual(self._article_storage.get_articles(), ['Medicine', 'Databases'])
+
+        self._article_storage.delete_user('user_2')
+
+        self.assertEqual(self._article_storage.get_users(), ['user_3'])
+        self.assertEqual(self._article_storage.get_articles(), ['Databases'])
+
 
     def test_get_non_exists_articles(self):
         with self.assertRaises(ArticleDoesNotExists):

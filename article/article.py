@@ -159,7 +159,7 @@ class ArticleStorage:
             user_id = self._find_user_id(nickname)
 
             self._cursor.execute("""
-                DELETE from Article Where id=?
+                DELETE from Article Where user_id=?
             """, (user_id,))
         
             self._cursor.execute("""
@@ -236,12 +236,16 @@ class ArticleStorage:
         return (like, dislike)
 
     def get_users(self):
-        self._cursor.execute("""
-            SELECT nickname FROM User
-        """)
-        users = [user[0] for user in self._cursor.fetchall()]
-        self._log.info('All users were got')
-        return users
+        try:
+            self._cursor.execute("""
+                SELECT nickname FROM User
+            """)
+            users = [user[0] for user in self._cursor.fetchall()]
+            self._log.info('All users were got')
+            return users
+        except sqlite3.OperationalError:
+            self._log.warning('Table User does not exist')
+            return None
 
     def get_articles(self, nickname=None):
         if nickname:
