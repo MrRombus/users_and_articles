@@ -2,7 +2,6 @@ import unittest
 import article.logg
 import logging
 import sqlite3
-import PIL
 
 from article.exceptions_articles import UserExists, UserDoestNotExists, ArticleDoesNotExists
 
@@ -146,6 +145,14 @@ class TestArticleStorage(unittest.TestCase):
         self.assertEqual(self._article_storage.get_users(), ['user_3'])
         self.assertEqual(self._article_storage.get_articles(), ['Databases'])
 
+    def test_get_user_info(self):
+        self._article_storage.add_user('user_1', 'vasya', 'petrov')
+        self._article_storage.add_user('user_2', 'petya', '1234')
+        self._article_storage.add_user('user_3', 'vova', 'petrov')
+
+        self.assertEqual(self._article_storage.get_user_info('user_1'), ('user_1', 'vasya', 'petrov'))
+        self.assertEqual(self._article_storage.get_user_info('user_2'), ('user_2', 'petya', '1234'))
+        self.assertEqual(self._article_storage.get_user_info('user_3'), ('user_3', 'vova', 'petrov'))
 
     def test_get_non_exists_articles(self):
         with self.assertRaises(ArticleDoesNotExists):

@@ -1,0 +1,54 @@
+INFO 2021-11-02 18:08:19,798 article Created four tables
+INFO 2021-11-02 18:08:20,741 article tables were deleted
+INFO 2021-11-02 18:08:21,131 article Created four tables
+INFO 2021-11-02 18:08:21,228 article User was created
+INFO 2021-11-02 18:08:21,331 article User was created
+INFO 2021-11-02 18:08:21,439 article User was created
+INFO 2021-11-02 18:08:22,263 article tables were deleted
+INFO 2021-11-02 18:08:40,259 article Created four tables
+INFO 2021-11-02 18:08:41,664 article tables were deleted
+INFO 2021-11-02 18:08:42,141 article Created four tables
+INFO 2021-11-02 18:08:42,243 article User was created
+INFO 2021-11-02 18:08:42,363 article User was created
+INFO 2021-11-02 18:08:42,453 article User was created
+INFO 2021-11-02 18:08:43,030 article tables were deleted
+INFO 2021-11-02 18:09:34,228 article Created four tables
+INFO 2021-11-02 18:09:35,296 article tables were deleted
+INFO 2021-11-02 18:09:36,281 article Created four tables
+INFO 2021-11-02 18:09:36,423 article User was created
+INFO 2021-11-02 18:09:36,703 article User was created
+INFO 2021-11-02 18:09:36,789 article User was created
+INFO 2021-11-02 18:09:37,344 article tables were deleted
+INFO 2021-11-02 18:12:41,245 article All users were got
+INFO 2021-11-02 18:12:41,246 article All articles were got
+INFO 2021-11-02 18:12:43,874 article All articles were got
+INFO 2021-11-02 18:12:51,312 article All articles were got
+INFO 2021-11-02 18:13:46,905 article All users were got
+INFO 2021-11-02 18:13:46,905 article All articles were got
+INFO 2021-11-02 18:13:48,689 article All articles were got
+INFO 2021-11-02 18:13:54,296 article All articles were got
+INFO 2021-11-02 18:13:57,952 article All articles were got
+INFO 2021-11-02 18:14:00,183 article All articles were got
+INFO 2021-11-02 18:15:25,504 article All users were got
+INFO 2021-11-02 18:15:25,504 article All articles were got
+INFO 2021-11-02 18:15:26,832 article All articles were got
+INFO 2021-11-02 18:15:35,433 article All users were got
+INFO 2021-11-02 18:15:39,632 article All articles were got
+INFO 2021-11-02 18:15:52,599 article Text articles was got
+INFO 2021-11-02 18:15:52,872 article Text articles was got
+INFO 2021-11-02 18:17:00,059 article Created four tables
+INFO 2021-11-02 18:17:00,146 article User was created
+INFO 2021-11-02 18:17:00,318 article User was created
+INFO 2021-11-02 18:17:00,889 article User was created
+INFO 2021-11-02 18:17:01,147 article Article Космос is published
+INFO 2021-11-02 18:17:01,324 article Article Уход за домашними животнами is published
+INFO 2021-11-02 18:17:01,482 article Article Рецепты вкусной еды is published
+INFO 2021-11-02 18:17:01,581 article Article Садоводство is published
+INFO 2021-11-02 18:17:01,583 article Articles were shown
+INFO 2021-11-02 18:17:01,586 article Articles were shown
+INFO 2021-11-02 18:17:01,591 article Article and all users were shown
+INFO 2021-11-02 18:17:01,677 article Comment from user Misha_K has been created
+INFO 2021-11-02 18:17:01,678 article Comments were shown
+INFO 2021-11-02 18:17:01,823 article like from user Вася228 has been set on Садоводство
+INFO 2021-11-02 18:17:01,824 article Mark from user Вася228 already set on Садоводство
+INFO 2021-11-02 18:17:01,825 article Likes and dislikes of the article Садоводство were shown
