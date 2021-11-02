@@ -219,7 +219,7 @@ class ArticleStorage:
             self._log.info(f'{mark} from user {nickname} has been set on {headline}')
             return True
 
-    def show_likes_and_dislikes(self, headline):
+    def get_likes_and_dislikes(self, headline):
         like = 0
         dislike = 0
         article_id = self._find_article_id(headline)
@@ -227,12 +227,14 @@ class ArticleStorage:
             SELECT id FROM LikesDislikes WHERE like_dislike=? AND article_id=?
         """, ('like', article_id))
         like = len(self._cursor.fetchall())
+
         self._cursor.execute("""
             SELECT id FROM LikesDislikes WHERE like_dislike=? AND article_id=?
         """, ('dislike', article_id))
         dislike = len(self._cursor.fetchall())
+
         self._log.info(f'Likes and dislikes of the article {headline} were shown')
-        print(f'У статьи {headline}: Лайков = {like}, Дизлайков = {dislike}')
+        # print(f'У статьи {headline}: Лайков = {like}, Дизлайков = {dislike}')
         return (like, dislike)
 
     def get_users(self):

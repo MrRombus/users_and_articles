@@ -183,6 +183,18 @@ class ArticleWindow(Frame):
         self.btn_del_article = Button(self, text='Удалить Статью', bg='red', command=self.del_article)
         self.btn_del_article.grid(row=8, column=1)
 
+        self.count_likes = StringVar()
+        self.count_dislikes = StringVar()
+
+        self.count_likes.set('Лайков: 0')
+        self.count_dislikes.set('Дизлайков: 0')
+
+        self.lbl_likes = Label(self, textvariable=self.count_likes)
+        self.lbl_likes.grid(row=7, column=2)
+
+        self.lbl_dislikes = Label(self, textvariable=self.count_dislikes)
+        self.lbl_dislikes.grid(row=8, column=2)
+
 
     def onSelect(self, val):
         sender = val.widget
@@ -207,6 +219,8 @@ class ArticleWindow(Frame):
 
         self.var_2.set(headline)
         self._selected_article = headline
+
+        self.update_likes()
 
     def add_user(self):
         add_user_window = AddUserWindow(self)
@@ -263,6 +277,12 @@ class ArticleWindow(Frame):
                 messagebox.showinfo('Info', f'Статья {headline} не изменена')
         else:
             messagebox.showerror('Error', f'Статья не выбрана')
+
+    def update_likes(self):
+        if self._selected_article:
+            likes, dislikes = self._article_storage.get_likes_and_dislikes(self._selected_article)
+            self.count_likes.set(f'Лайков: {likes}')
+            self.count_dislikes.set(f'Дизлайков: {dislikes}')
 
     def _fill_lb(self, lb, items, extra=[]):
         lb.delete(0, END)
