@@ -59,6 +59,9 @@ class EditUserWindow(Toplevel):
     def __init__(self, parent):
         super().__init__(parent)
         self.parent = parent
+        self.old_nickname = None
+        self.old_name = None
+        self.old_surname = None
         self.initUI()
 
     def initUI(self):
@@ -70,6 +73,7 @@ class EditUserWindow(Toplevel):
         self.lbl_nickname.grid(row=1, column=0)
 
         self.entry_nickname = Entry(self)
+        #self.entry_nickname.insert(0, self.old_nickname)
         self.entry_nickname.grid(row=1, column=1)
 
         self.lbl_name = Label(self, text='Имя:')
