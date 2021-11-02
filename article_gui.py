@@ -59,9 +59,9 @@ class EditUserWindow(Toplevel):
     def __init__(self, parent):
         super().__init__(parent)
         self.parent = parent
+        self.old_surname = None
         self.old_nickname = None
         self.old_name = None
-        self.old_surname = None
         self.initUI()
 
     def initUI(self):
