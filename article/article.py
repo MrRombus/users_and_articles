@@ -296,6 +296,18 @@ class ArticleStorage:
             return False
         return True
 
+    def get_user_info(self, nickname):
+        try:
+            user_id = self._find_user_id(nickname)
+            self._cursor.execute("""
+                SELECT nickname, name, surname FROM User WHERE id=?
+            """, (user_id, ))
+            user_info = self._cursor.fetchone()
+            return user_info
+        except UserDoestNotExists:
+            self._log.warning('User does not exist')
+            return None
+
 
 if __name__ == '__main__':
     conn = sqlite3.connect('ArticleStorage.sqlite3') 
