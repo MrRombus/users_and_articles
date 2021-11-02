@@ -58,11 +58,14 @@ class AddUserWindow(Toplevel):
 class EditUserWindow(Toplevel):
     def __init__(self, parent):
         super().__init__(parent)
-        self.parent = parent
+        self.parent = parent       
         self.initUI()
 
     def initUI(self):
         self.title('Изменить')
+
+        self.old_nickname, self.old_name, self.old_surname = self.parent._article_storage.get_user_info(self.parent._selected_user)
+
         self.lbl_ed_user = Label(self, text='Изменить пользователя: ')
         self.lbl_ed_user.grid(row=0, column=0)
 
@@ -70,18 +73,21 @@ class EditUserWindow(Toplevel):
         self.lbl_nickname.grid(row=1, column=0)
 
         self.entry_nickname = Entry(self)
+        self.entry_nickname.insert(0, self.old_nickname)
         self.entry_nickname.grid(row=1, column=1)
 
         self.lbl_name = Label(self, text='Имя:')
         self.lbl_name.grid(row=2, column=0)
 
         self.entry_name = Entry(self)
+        self.entry_name.insert(0, self.old_name)
         self.entry_name.grid(row=2, column=1)
 
         self.lbl_surname = Label(self, text='Фамилия:')
         self.lbl_surname.grid(row=3, column=0)
 
         self.entry_surname = Entry(self)
+        self.entry_surname.insert(0, self.old_surname)
         self.entry_surname.grid(row=3, column=1)
 
         self.btn_ed_user = Button(self, text='Изменить', bg='yellow', command=self.ed_user)
@@ -103,8 +109,6 @@ class EditUserWindow(Toplevel):
         self.entry_nickname.delete(0, END)
         self.entry_name.delete(0, END)
         self.entry_surname.delete(0, END)
-
-
 
 
 class ArticleWindow(Frame):
@@ -173,8 +177,8 @@ class ArticleWindow(Frame):
         self.btn_del_user = Button(self, text='Удалить', bg='red', command=self.del_user)
         self.btn_del_user.grid(row=9, column=0)
 
-        self.btn_del_article = Button(self, text='Редактировать Статью', bg='yellow', command=self.ed_article)
-        self.btn_del_article.grid(row=7, column=1)
+        self.btn_edit_article = Button(self, text='Редактировать Статью', bg='yellow', command=self.ed_article)
+        self.btn_edit_article.grid(row=7, column=1)
 
         self.btn_del_article = Button(self, text='Удалить Статью', bg='red', command=self.del_article)
         self.btn_del_article.grid(row=8, column=1)

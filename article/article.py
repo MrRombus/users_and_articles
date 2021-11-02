@@ -159,7 +159,7 @@ class ArticleStorage:
             user_id = self._find_user_id(nickname)
 
             self._cursor.execute("""
-                DELETE from Article Where id=?
+                DELETE from Article Where user_id=?
             """, (user_id,))
         
             self._cursor.execute("""
@@ -236,12 +236,16 @@ class ArticleStorage:
         return (like, dislike)
 
     def get_users(self):
-        self._cursor.execute("""
-            SELECT nickname FROM User
-        """)
-        users = [user[0] for user in self._cursor.fetchall()]
-        self._log.info('All users were got')
-        return users
+        try:
+            self._cursor.execute("""
+                SELECT nickname FROM User
+            """)
+            users = [user[0] for user in self._cursor.fetchall()]
+            self._log.info('All users were got')
+            return users
+        except sqlite3.OperationalError:
+            self._log.warning('Table User does not exist')
+            return None
 
     def get_articles(self, nickname=None):
         if nickname:
@@ -281,12 +285,28 @@ class ArticleStorage:
         self._log.info('Article and all users were shown')
 
     def edit_user(self, nickname, new_nickname=None, new_name=None, new_surname=None):
-        user_id = self._find_user_id(nickname)
-        self._cursor.execute("""
-            UPDATE User SET nickname=?, name=?, surname=? WHERE id=?
-        """, (new_nickname, new_name, new_surname, user_id))
-        self._conn.commit()
+        try:
+            user_id = self._find_user_id(nickname)
+            self._cursor.execute("""
+                UPDATE User SET nickname=?, name=?, surname=? WHERE id=?
+            """, (new_nickname, new_name, new_surname, user_id))
+            self._conn.commit()
+        except UserDoestNotExists:
+            self._log.warning('User does not exist')
+            return False
         return True
+
+    def get_user_info(self, nickname):
+        try:
+            user_id = self._find_user_id(nickname)
+            self._cursor.execute("""
+                SELECT nickname, name, surname FROM User WHERE id=?
+            """, (user_id, ))
+            user_info = self._cursor.fetchone()
+            return user_info
+        except UserDoestNotExists:
+            self._log.warning('User does not exist')
+            return None
 
 
 if __name__ == '__main__':
