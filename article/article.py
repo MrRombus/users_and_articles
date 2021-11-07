@@ -98,6 +98,17 @@ class ArticleStorage:
             raise ArticleDoesNotExists
         return article_id
 
+    def is_user(self, nickname):
+        self._cursor.execute("""
+            SELECT id FROM User WHERE nickname=?
+        """, (nickname,))
+        try:
+            user_id = self._cursor.fetchone()[0]
+        except:
+            self._log.info(f'User {nickname} not found')
+            return False
+        return True
+
     def add_user(self, nickname, name, surname):
         try:
             self._cursor.execute(f"""
