@@ -6,6 +6,9 @@ from tkinter.ttk import Frame
 import article.logg
 from article.article import ArticleStorage
 
+from info.data_work import DataWork
+
+
 class AddUserWindow(Toplevel):
     def __init__(self, parent):
         super().__init__(parent)
@@ -54,6 +57,7 @@ class AddUserWindow(Toplevel):
         self.entry_nickname.delete(0, END)
         self.entry_name.delete(0, END)
         self.entry_surname.delete(0, END)
+
 
 class EditUserWindow(Toplevel):
     def __init__(self, parent):
@@ -111,19 +115,52 @@ class EditUserWindow(Toplevel):
         self.entry_surname.delete(0, END)
 
 
+class AuthUserWindow(Toplevel):
+    def __init__(self, parent):
+        super().__init__(parent)
+        self.parent = parent
+        self.initUI()
+
+    def initUI(self):
+        self.title('Войти за ...')
+
+        self.lbl_reg_user = Label(self, text='Никнейм пользователя: ')
+        self.lbl_reg_user.grid(row=1, column=0)
+
+        self.entry_nickname = Entry(self)
+        self.entry_nickname.insert(0, self.parent._registered_user)
+        self.entry_nickname.grid(row=1, column=1)
+
+        self.btn_reg_user = Button(self, text='Войти', bg='green', command=self.auth_user)
+        self.btn_reg_user.grid(row=2, column=0)
+
+    def auth_user(self):
+        nickname = self.entry_nickname.get()
+
+        if self.parent._article_storage.is_user(nickname):
+            self.parent.auth(nickname)
+            self.destroy()
+        else:
+            messagebox.showerror('Error', f'Пользователь {nickname} не существует')
+
+        #self.entry_nickname.delete(0, END)
+
+
 class ArticleWindow(Frame):
-    def __init__(self, article_storage):
+    def __init__(self, article_storage, data_work):
         super().__init__()
         self._article_storage = article_storage
+        self._data_work = data_work
         self._selected_user = None
         self._selected_article = None
+        self._registered_user = self._data_work.get_current_user() if self._data_work.get_current_user() else ''
         self.initUI()
 
     def setGeometry(self, w=600, h=450):
         self.master.geometry(f'{w}x{h}')
 
     def initUI(self):
-        self.master.title("Список")
+        self.master.title("Users articles")
 
         users = self._article_storage.get_users()
 
@@ -177,11 +214,39 @@ class ArticleWindow(Frame):
         self.btn_del_user = Button(self, text='Удалить', bg='red', command=self.del_user)
         self.btn_del_user.grid(row=9, column=0)
 
+        self.registered_user = StringVar()
+        self.label_article = Label(self, text=0, textvariable=self.registered_user)
+        self.label_article.grid(row=10, column=0)
+
+        self.btn_auth_user = Button(self, text='Войти', bg='green', command=self.auth_user)
+        self.btn_auth_user.grid(row=11, column=0)
+
         self.btn_edit_article = Button(self, text='Редактировать Статью', bg='yellow', command=self.ed_article)
         self.btn_edit_article.grid(row=7, column=1)
 
         self.btn_del_article = Button(self, text='Удалить Статью', bg='red', command=self.del_article)
         self.btn_del_article.grid(row=8, column=1)
+
+        self.count_likes = StringVar()
+        self.count_dislikes = StringVar()
+
+        self.count_likes.set('Лайков: 0')
+        self.count_dislikes.set('Дизлайков: 0')
+
+        self.lbl_likes = Label(self, textvariable=self.count_likes)
+        self.lbl_likes.grid(row=7, column=2)
+
+        self.btn_like = Button(self, text='Поставить лайк', bg='green', command=lambda: self.set_like_or_dislike())
+        self.btn_like.grid(row=8, column=2)
+
+        self.lbl_dislikes = Label(self, textvariable=self.count_dislikes)
+        self.lbl_dislikes.grid(row=9, column=2)
+
+        self.btn_dislike = Button(self, text='Поставить дизлайк', bg='red', command=lambda: self.set_like_or_dislike(False))
+        self.btn_dislike.grid(row=10, column=2)
+
+        if self._registered_user:
+            self.auth(self._registered_user)
 
 
     def onSelect(self, val):
@@ -207,6 +272,8 @@ class ArticleWindow(Frame):
 
         self.var_2.set(headline)
         self._selected_article = headline
+
+        self.update_likes()
 
     def add_user(self):
         add_user_window = AddUserWindow(self)
@@ -263,6 +330,33 @@ class ArticleWindow(Frame):
                 messagebox.showinfo('Info', f'Статья {headline} не изменена')
         else:
             messagebox.showerror('Error', f'Статья не выбрана')
+    
+    def auth_user(self):
+        reg_user_window = AuthUserWindow(self)
+        reg_user_window.grab_set()
+    
+    def set_like_or_dislike(self, is_like=True):
+        mark = 'like' if is_like else 'dislike'
+        nickname = self._registered_user
+        headline = self._selected_article
+        if self._registered_user:
+            self._article_storage.set_like_or_dislike(mark, nickname, headline)
+            self.update_likes()
+        else:
+            messagebox.showerror('Error', f'Вы не зарегистрированы')
+
+    def update_likes(self):
+        if self._selected_article:
+            likes, dislikes = self._article_storage.get_likes_and_dislikes(self._selected_article)
+            self.count_likes.set(f'Лайков: {likes}')
+            self.count_dislikes.set(f'Дизлайков: {dislikes}')
+
+    def auth(self, nickname):
+        self._registered_user = nickname
+        self.registered_user.set(nickname)
+        self.master.title(f'Users articles: {nickname}')
+        self.btn_auth_user.configure(text='Сменить пользователя')
+        self._data_work.set_current_user(nickname)
 
     def _fill_lb(self, lb, items, extra=[]):
         lb.delete(0, END)
@@ -285,7 +379,9 @@ if __name__ == '__main__':
 
     article_storage = ArticleStorage(conn, u_storage_log)
 
-    article_window = ArticleWindow(article_storage)
+    data_work = DataWork('info/data.txt')
+
+    article_window = ArticleWindow(article_storage, data_work)
     article_window.setGeometry()
 
     root.mainloop()
