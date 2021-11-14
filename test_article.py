@@ -20,10 +20,8 @@ class TestArticleStorage(unittest.TestCase):
         self.assertTrue(self._article_storage.add_user('user_1', 'vasya', 'petrov'))
 
     def test_add_double_user(self):
-        self._article_storage.add_user('Vasya', 'V', 'P')
-
-        with self.assertRaises(UserExists):
-            self._article_storage.add_user('Vasya', 'T', 'T')
+        self._article_storage.add_user('Vasya', 'T', 'T')
+        self.assertFalse(self._article_storage.add_user('Vasya', 'T', 'T'))
 
     def test_publish_done(self):
         self._article_storage.add_user('user_1', 'vasya', 'petrov')
@@ -51,8 +49,6 @@ class TestArticleStorage(unittest.TestCase):
     def test_ArticleDoesNotExists(self):
         self._article_storage.add_user('user_1', 'vasya', 'petrov')
         self._article_storage.publish('user_1', 'Space', 'Text about space')
-        #with self.assertRaises(ArticleDoesNotExists):
-        #    self._article_storage.delete_article('Space1')
         self.assertFalse(self._article_storage.delete_article('Space1'))
 
     def test_add_comment(self):
@@ -60,6 +56,21 @@ class TestArticleStorage(unittest.TestCase):
         self._article_storage.publish('user_1', 'Space', 'Text about space')
         self.assertTrue(self._article_storage.add_comment('user_1', 'Space', '+'))
         self.assertTrue(self._article_storage.add_comment('user_1', 'Space', '-'))
+
+    def test_get_comments(self):
+        self._article_storage.add_user('user_1', 'vasya', 'petrov')
+        self._article_storage.publish('user_1', 'Space', 'Text about space')
+        self._article_storage.publish('user_1', 'Space 2', 'Text about space 2')
+        self._article_storage.add_comment('user_1', 'Space', '+')
+        self._article_storage.add_comment('user_1', 'Space 2', '-')
+        self.assertEqual(len(self._article_storage.get_comments('Space 2')), 1)
+
+    def test_get_comments(self):
+        self._article_storage.add_user('user_1', 'vasya', 'petrov')
+        self._article_storage.publish('user_1', 'Space', 'Text about space')
+        self._article_storage.add_comment('user_1', 'Space', '+')
+        self._article_storage.add_comment('user_1', 'Space', '-')
+        self.assertEqual(len(self._article_storage.get_comments()), 2)
 
     def test_not_user(self):
         self._article_storage.add_user('user_1', 'vasya', 'petrov')
@@ -144,6 +155,16 @@ class TestArticleStorage(unittest.TestCase):
 
         self.assertEqual(self._article_storage.get_users(), ['user_3'])
         self.assertEqual(self._article_storage.get_articles(), ['Databases'])
+
+    def test_edit_user(self):
+        self._article_storage.add_user('user_1', 'vasya', 'petrov')
+        self.assertEqual(self._article_storage.get_users(), ['user_1'])
+        self._article_storage.edit_user('user_1', 'user_2', 'vana', 'ivanov')
+        self.assertEqual(self._article_storage.get_users(), ['user_2'])
+
+    def test_edit_user_2(self):
+        self._article_storage.add_user('user_1', 'vasya', 'petrov')
+        self.assertFalse(self._article_storage.edit_user('user_2', 'user_2', 'vana', 'ivanov'), False)
 
     def test_get_user_info(self):
         self._article_storage.add_user('user_1', 'vasya', 'petrov')

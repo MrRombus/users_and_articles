@@ -205,13 +205,22 @@ class ArticleStorage:
         self._log.info(f'Comment from user {nickname} has been created')
         return True
 
-    def show_comments(self):
-        self._cursor.execute("""
-            SELECT * FROM Comments
-        """)
-        comments = self._cursor.fetchall()
-        print(comments)
-        self._log.info('Comments were shown')
+    def get_comments(self, headline=None):
+        if headline:
+            article_id = self._find_article_id(headline)
+            self._cursor.execute("""
+                SELECT * FROM Comments WHERE article_id=?
+            """, (article_id,))
+            comments = self._cursor.fetchall()
+            self._log.info('Comments from article {headline} were shown')
+            return comments
+        else:
+            self._cursor.execute("""
+                SELECT * FROM Comments
+            """)
+            comments = self._cursor.fetchall()
+            self._log.info('Comments were shown')
+            return comments
 
     def set_like_or_dislike(self, mark, nickname, headline, date=str(datetime.datetime.now())):
         user_id = self._find_user_id(nickname)
