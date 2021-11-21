@@ -9,6 +9,41 @@ from article.article import ArticleStorage
 from info.data_work import DataWork
 
 
+class ArticleCreationWindow(Toplevel):
+    def __init__(self, parent):
+        super().__init__(parent)
+        self.parent = parent
+        self.initUI()
+
+    def initUI(self):
+        self.title('Публикация статьи')
+        self.lbl_headline = Label(self, text='Название статьи: ')
+        self.lbl_headline.grid(row=0, column=0)
+
+        self.entry_headline = Entry(self)
+        self.entry_headline.grid(row=0, column=1)
+
+        self.lbl_text = Label(self, text='Текст статьи: ')
+        self.lbl_text.grid(row=1, column=0)
+
+        self.txt = Text(self)
+        self.txt.grid(row=1, column=1)
+
+        self.btn_publish = Button(self, text='Опубликовать', bg='green', command=self.publish_article)
+        self.btn_publish.grid(row=2, column=0)
+
+    def publish_article(self):
+        headline = self.entry_headline.get()
+        text = self.txt.get('1.0', END)
+
+        if self.parent._article_storage.publish(self.parent._registered_user, headline, text):
+            self.parent._fill_lb(self.parent.lb_articles, self.parent._article_storage.get_articles())
+            messagebox.showinfo('Info', f'Статья {headline} опубликована')
+            self.destroy()
+        else:
+            messagebox.showerror('Ошибка', f'Статья {headline} уже существует')
+
+
 class AddUserWindow(Toplevel):
     def __init__(self, parent):
         super().__init__(parent)
@@ -221,11 +256,14 @@ class ArticleWindow(Frame):
         self.btn_auth_user = Button(self, text='Войти', bg='green', command=self.auth_user)
         self.btn_auth_user.grid(row=11, column=0)
 
+        self.btn_pub_article = Button(self, text='Опубликовать статью', bg='green', command=self.pub_article, state='disabled')
+        self.btn_pub_article.grid(row=7, column=1)
+
         self.btn_edit_article = Button(self, text='Редактировать Статью', bg='yellow', command=self.ed_article)
-        self.btn_edit_article.grid(row=7, column=1)
+        self.btn_edit_article.grid(row=8, column=1)
 
         self.btn_del_article = Button(self, text='Удалить Статью', bg='red', command=self.del_article)
-        self.btn_del_article.grid(row=8, column=1)
+        self.btn_del_article.grid(row=9, column=1)
 
         self.count_likes = StringVar()
         self.count_dislikes = StringVar()
@@ -298,6 +336,10 @@ class ArticleWindow(Frame):
                 messagebox.showinfo('Info', f'Пользователь {nickname} не был удалён')
         else:
             messagebox.showerror('Error', f'Пользователь не выбран')
+
+    def pub_article(self):
+        article_creation_window = ArticleCreationWindow(self)
+        article_creation_window.grab_set()
         
     def del_article(self):
         if self._selected_article:
@@ -356,6 +398,7 @@ class ArticleWindow(Frame):
         self.registered_user.set(nickname)
         self.master.title(f'Users articles: {nickname}')
         self.btn_auth_user.configure(text='Сменить пользователя')
+        self.btn_pub_article.configure(state='active')
         self._data_work.set_current_user(nickname)
 
     def _fill_lb(self, lb, items, extra=[]):
