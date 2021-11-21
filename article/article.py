@@ -25,7 +25,7 @@ class ArticleStorage:
         self._cursor.execute("""
             CREATE TABLE IF NOT EXISTS Article(
                 id INTEGER PRIMARY KEY,
-                headline TEXT,
+                headline TEXT UNIQUE,
                 content TEXT,
                 publication_date TEXT,
                 user_id INTEGER NOT NULL,
@@ -124,14 +124,18 @@ class ArticleStorage:
             # raise(sqlite3.IntegrityError)
 
     def publish(self, nickname, headline, content, date=str(datetime.datetime.now())):
-        user_id = self._find_user_id(nickname)
-        print(user_id)
-        self._cursor.execute(f"""
-            INSERT INTO Article(headline, content, publication_date, user_id) VALUES ('{headline}', '{content}', '{date}', {user_id})
-        """)
-        self._conn.commit()
-        self._log.info(f'Article {headline} is published')
-        return True
+        try:
+            user_id = self._find_user_id(nickname)
+            self._cursor.execute(f"""
+                INSERT INTO Article(headline, content, publication_date, user_id) VALUES ('{headline}', '{content}', '{date}', {user_id})
+            """)
+            self._conn.commit()
+            self._log.info(f'Article {headline} is published')
+            return True
+        except sqlite3.IntegrityError:
+            self._log.warning(f'Article {headline} already exists!')
+            return False
+        
 
     def show_articles(self, nickname=None):
         if nickname:
