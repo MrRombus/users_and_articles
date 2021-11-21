@@ -1,6 +1,5 @@
 import logging
 
-log = logging.getLogger('data_work')
 
 class DataWork:
     def __init__(self, info_file, log):

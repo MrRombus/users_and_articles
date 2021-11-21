@@ -1,4 +1,5 @@
 import unittest
+import article.logg
 import logging
 
 from info.data_work import DataWork
