@@ -49,7 +49,6 @@ if __name__ == '__main__':
     article_storage.all_users_articles()
     
     article_storage.add_comment('Misha_K', 'Космос', '+')
-    article_storage.show_comments()
     article_storage.set_like_or_dislike('like', 'Вася228', 'Садоводство')
     article_storage.set_like_or_dislike('like', 'Вася228', 'Рецепты вкусной еды')
     article_storage.set_like_or_dislike('like', 'Rombus', 'Садоводство')
@@ -57,4 +56,3 @@ if __name__ == '__main__':
     article_storage.set_like_or_dislike('dislike', 'Levinson', 'Космос')
     article_storage.set_like_or_dislike('dislike', 'Rombus', 'Космос')
     article_storage.set_like_or_dislike('like', 'Cat', 'Уход за домашними животнами')
-    article_storage.show_likes_and_dislikes('Садоводство')
