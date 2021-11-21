@@ -379,7 +379,9 @@ if __name__ == '__main__':
 
     article_storage = ArticleStorage(conn, u_storage_log)
 
-    data_work = DataWork('info/data.txt')
+    log = logging.getLogger('data_work')
+
+    data_work = DataWork('info/data.txt', log)
 
     article_window = ArticleWindow(article_storage, data_work)
     article_window.setGeometry()
