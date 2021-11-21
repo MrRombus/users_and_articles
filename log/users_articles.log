@@ -1530,3 +1530,52 @@ INFO 2021-11-14 18:37:42,373 article Text articles was got
 INFO 2021-11-14 18:37:42,373 article Likes and dislikes of the article Космос were shown
 INFO 2021-11-14 18:37:43,856 article like from user Cat has been set on Космос
 INFO 2021-11-14 18:37:43,857 article Likes and dislikes of the article Космос were shown
+INFO 2021-11-21 18:13:30,619 article All users were got
+INFO 2021-11-21 18:13:30,620 article All articles were got
+INFO 2021-11-21 18:13:33,118 article All articles were got
+INFO 2021-11-21 18:13:33,531 article All articles were got
+INFO 2021-11-21 18:13:33,916 article All articles were got
+INFO 2021-11-21 18:13:34,331 article All articles were got
+INFO 2021-11-21 18:13:34,572 article All articles were got
+INFO 2021-11-21 18:13:34,853 article All articles were got
+INFO 2021-11-21 18:13:35,419 article All articles were got
+INFO 2021-11-21 18:13:35,828 article Text articles was got
+INFO 2021-11-21 18:13:35,830 article Likes and dislikes of the article Садоводство were shown
+INFO 2021-11-21 18:13:36,179 article Text articles was got
+INFO 2021-11-21 18:13:36,180 article Likes and dislikes of the article Рецепты вкусной еды were shown
+INFO 2021-11-21 18:13:37,588 article All articles were got
+INFO 2021-11-21 18:13:38,300 article Text articles was got
+INFO 2021-11-21 18:13:38,300 article Likes and dislikes of the article Уход за домашними животнами were shown
+INFO 2021-11-21 18:13:38,891 article Text articles was got
+INFO 2021-11-21 18:13:38,892 article Likes and dislikes of the article Рецепты вкусной еды were shown
+INFO 2021-11-21 18:13:40,668 article Text articles was got
+INFO 2021-11-21 18:13:40,669 article Likes and dislikes of the article Садоводство were shown
+INFO 2021-11-21 18:13:41,004 article Text articles was got
+INFO 2021-11-21 18:13:41,005 article Likes and dislikes of the article Уход за домашними животнами were shown
+INFO 2021-11-21 18:13:41,427 article Text articles was got
+INFO 2021-11-21 18:13:41,429 article Likes and dislikes of the article Космос were shown
+INFO 2021-11-21 18:13:41,763 article Text articles was got
+INFO 2021-11-21 18:13:41,765 article Likes and dislikes of the article Уход за домашними животнами were shown
+INFO 2021-11-21 18:13:42,124 article Text articles was got
+INFO 2021-11-21 18:13:42,125 article Likes and dislikes of the article Рецепты вкусной еды were shown
+INFO 2021-11-21 18:20:06,999 article Created four tables
+INFO 2021-11-21 18:20:07,090 article User was created
+WARNING 2021-11-21 18:20:07,090 article User exists!
+INFO 2021-11-21 18:20:07,184 article tables were deleted
+INFO 2021-11-21 18:20:07,741 article Created four tables
+INFO 2021-11-21 18:20:08,308 article User was created
+INFO 2021-11-21 18:20:09,088 article tables were deleted
+INFO 2021-11-21 18:20:59,532 article Created four tables
+INFO 2021-11-21 18:20:59,745 article User was created
+WARNING 2021-11-21 18:20:59,747 article User exists!
+INFO 2021-11-21 18:21:00,126 article tables were deleted
+INFO 2021-11-21 18:21:00,535 article Created four tables
+INFO 2021-11-21 18:21:00,629 article User was created
+INFO 2021-11-21 18:21:01,308 article tables were deleted
+INFO 2021-11-21 18:21:39,470 article Created four tables
+INFO 2021-11-21 18:21:39,648 article User was created
+WARNING 2021-11-21 18:21:39,649 article User exists!
+INFO 2021-11-21 18:21:39,818 article tables were deleted
+INFO 2021-11-21 18:21:41,446 article Created four tables
+INFO 2021-11-21 18:21:41,755 article User was created
+INFO 2021-11-21 18:21:42,736 article tables were deleted

@@ -2,10 +2,13 @@ import unittest
 import article.logg
 import logging
 import sqlite3
+import os
 
 from article.exceptions_articles import UserExists, UserDoestNotExists, ArticleDoesNotExists
 
-conn = sqlite3.connect('ArticleStorageTest.sqlite3')
+test_file_db_name = 'ArticleStorageTest.sqlite3'
+
+conn = sqlite3.connect(test_file_db_name)
 u_storage_log = logging.getLogger('u_storage')
 
 
@@ -181,6 +184,7 @@ class TestArticleStorage(unittest.TestCase):
 
     def tearDown(self):
         self._article_storage.drop()
+        # os.remove(test_file_db_name)
 
 
 if __name__ == '__main__':
