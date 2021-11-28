@@ -1,5 +1,3 @@
-import logging
-
 
 class DataWork:
     def __init__(self, info_file, log):

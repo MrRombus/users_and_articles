@@ -1904,3 +1904,150 @@ INFO 2021-11-28 17:53:44,898 article Article Space is published
 INFO 2021-11-28 17:53:44,901 article like from user user_1 has been set on Space
 INFO 2021-11-28 17:53:44,901 article Mark from user user_1 already set on Space
 INFO 2021-11-28 17:53:44,919 article tables were deleted
+INFO 2021-11-28 18:21:45,537 article Created four tables
+INFO 2021-11-28 18:21:45,659 article User was created
+INFO 2021-11-28 18:21:45,814 article User was created
+INFO 2021-11-28 18:21:46,025 article User was created
+INFO 2021-11-28 18:21:46,121 article Article Space is published
+INFO 2021-11-28 18:21:46,214 article Article Space_2 is published
+INFO 2021-11-28 18:21:46,382 article Article Medicine is published
+INFO 2021-11-28 18:21:46,593 article Article Databases is published
+INFO 2021-11-28 18:21:46,875 article User user_1 has been deleted
+INFO 2021-11-28 18:21:46,876 article All users were got
+INFO 2021-11-28 18:21:46,876 article All articles were got
+INFO 2021-11-28 18:21:47,297 article tables were deleted
+INFO 2021-11-28 18:25:41,338 article Created four tables
+INFO 2021-11-28 18:25:41,422 article User was created
+INFO 2021-11-28 18:25:41,504 article User was created
+INFO 2021-11-28 18:25:41,600 article User was created
+INFO 2021-11-28 18:25:41,749 article Article Space is published
+INFO 2021-11-28 18:25:41,993 article Article Space_2 is published
+INFO 2021-11-28 18:25:42,237 article Article Medicine is published
+INFO 2021-11-28 18:25:42,415 article Article Databases is published
+INFO 2021-11-28 18:25:42,415 article All articles were got
+INFO 2021-11-28 18:25:43,157 article tables were deleted
+INFO 2021-11-28 18:26:06,288 article Created four tables
+INFO 2021-11-28 18:26:06,477 article User was created
+INFO 2021-11-28 18:26:06,594 article User was created
+INFO 2021-11-28 18:26:06,687 article User was created
+INFO 2021-11-28 18:26:06,773 article Article Space is published
+INFO 2021-11-28 18:26:06,864 article Article Space_2 is published
+INFO 2021-11-28 18:26:06,950 article Article Medicine is published
+INFO 2021-11-28 18:26:07,243 article Article Databases is published
+INFO 2021-11-28 18:26:07,244 article All articles were got
+INFO 2021-11-28 18:26:07,686 article tables were deleted
+INFO 2021-11-28 18:26:10,978 article Created four tables
+INFO 2021-11-28 18:26:11,059 article User was created
+INFO 2021-11-28 18:26:11,144 article User was created
+INFO 2021-11-28 18:26:11,236 article User was created
+INFO 2021-11-28 18:26:11,347 article Article Space is published
+INFO 2021-11-28 18:26:11,432 article Article Space_2 is published
+INFO 2021-11-28 18:26:11,513 article Article Medicine is published
+INFO 2021-11-28 18:26:11,599 article Article Databases is published
+INFO 2021-11-28 18:26:11,600 article All articles were got
+INFO 2021-11-28 18:26:11,931 article tables were deleted
+INFO 2021-11-28 18:27:04,077 article Created four tables
+INFO 2021-11-28 18:27:04,162 article User was created
+INFO 2021-11-28 18:27:04,253 article User was created
+INFO 2021-11-28 18:27:04,338 article User was created
+INFO 2021-11-28 18:27:04,450 article Article Space is published
+INFO 2021-11-28 18:27:04,542 article Article A is published
+INFO 2021-11-28 18:27:04,631 article Article Space_2 is published
+INFO 2021-11-28 18:27:04,715 article Article Medicine is published
+INFO 2021-11-28 18:27:04,842 article Article Databases is published
+INFO 2021-11-28 18:27:04,844 article All articles were got
+INFO 2021-11-28 18:27:05,208 article tables were deleted
+INFO 2021-11-28 18:29:01,426 article Created four tables
+INFO 2021-11-28 18:29:01,505 article User was created
+INFO 2021-11-28 18:29:01,627 article User was created
+INFO 2021-11-28 18:29:01,727 article User was created
+INFO 2021-11-28 18:29:01,824 article Article Space is published
+INFO 2021-11-28 18:29:01,906 article Article Space_2 is published
+INFO 2021-11-28 18:29:01,993 article Article Medicine is published
+INFO 2021-11-28 18:29:02,153 article Article Databases is published
+INFO 2021-11-28 18:29:02,154 article All articles were got
+INFO 2021-11-28 18:29:02,748 article tables were deleted
+INFO 2021-11-28 18:29:33,227 article Created four tables
+INFO 2021-11-28 18:29:33,622 article User was created
+INFO 2021-11-28 18:29:33,895 article User was created
+INFO 2021-11-28 18:29:34,251 article User was created
+INFO 2021-11-28 18:29:34,488 article Article Space is published
+INFO 2021-11-28 18:29:34,901 article Article Space_2 is published
+INFO 2021-11-28 18:29:35,121 article Article Medicine is published
+INFO 2021-11-28 18:29:35,253 article Article Databases is published
+INFO 2021-11-28 18:29:35,339 article Article Databases_2 is published
+INFO 2021-11-28 18:29:35,420 article Article Databases_3 is published
+INFO 2021-11-28 18:29:35,421 article All articles were got
+INFO 2021-11-28 18:29:35,837 article tables were deleted
+INFO 2021-11-28 18:30:41,338 article Created four tables
+INFO 2021-11-28 18:30:41,637 article User was created
+INFO 2021-11-28 18:30:41,912 article User was created
+INFO 2021-11-28 18:30:42,084 article User was created
+INFO 2021-11-28 18:30:42,361 article Article Space is published
+INFO 2021-11-28 18:30:42,467 article Article Space_2 is published
+INFO 2021-11-28 18:30:42,551 article Article Medicine is published
+INFO 2021-11-28 18:30:42,649 article Article Databases is published
+INFO 2021-11-28 18:30:42,734 article Article Databases_2 is published
+INFO 2021-11-28 18:30:42,815 article Article Databases_3 is published
+INFO 2021-11-28 18:30:42,816 article All articles were got
+INFO 2021-11-28 18:30:43,798 article tables were deleted
+INFO 2021-11-28 18:31:14,417 article Created four tables
+INFO 2021-11-28 18:31:14,499 article User was created
+INFO 2021-11-28 18:31:14,584 article User was created
+INFO 2021-11-28 18:31:14,665 article User was created
+INFO 2021-11-28 18:31:14,884 article Article Space is published
+INFO 2021-11-28 18:31:15,124 article Article Space_2 is published
+INFO 2021-11-28 18:31:15,587 article Article Medicine is published
+INFO 2021-11-28 18:31:16,460 article Article Databases is published
+INFO 2021-11-28 18:31:16,674 article Article Databases_2 is published
+INFO 2021-11-28 18:31:16,848 article Article Databases_3 is published
+INFO 2021-11-28 18:31:16,849 article All articles were got
+INFO 2021-11-28 18:31:17,705 article tables were deleted
+INFO 2021-11-28 18:32:02,902 article Created four tables
+INFO 2021-11-28 18:32:02,987 article User was created
+INFO 2021-11-28 18:32:03,084 article User was created
+INFO 2021-11-28 18:32:03,165 article User was created
+INFO 2021-11-28 18:32:03,256 article User was created
+INFO 2021-11-28 18:32:03,357 article Article Space is published
+INFO 2021-11-28 18:32:03,442 article Article Space_2 is published
+INFO 2021-11-28 18:32:03,524 article Article Medicine is published
+INFO 2021-11-28 18:32:03,646 article Article Databases is published
+INFO 2021-11-28 18:32:03,731 article Article Databases_2 is published
+INFO 2021-11-28 18:32:03,823 article Article Databases_3 is published
+INFO 2021-11-28 18:32:03,823 article All users were got
+INFO 2021-11-28 18:32:04,267 article tables were deleted
+INFO 2021-11-28 18:33:08,744 article Created four tables
+INFO 2021-11-28 18:33:08,830 article User was created
+INFO 2021-11-28 18:33:08,922 article User was created
+INFO 2021-11-28 18:33:09,008 article User was created
+INFO 2021-11-28 18:33:09,089 article Article Space is published
+INFO 2021-11-28 18:33:09,188 article Article Space_2 is published
+INFO 2021-11-28 18:33:09,307 article Article Medicine is published
+INFO 2021-11-28 18:33:09,543 article Article Databases is published
+INFO 2021-11-28 18:33:09,729 article User user_1 has been deleted
+INFO 2021-11-28 18:33:09,731 article All users were got
+INFO 2021-11-28 18:33:09,731 article All articles were got
+INFO 2021-11-28 18:33:09,993 article User user_2 has been deleted
+INFO 2021-11-28 18:33:09,994 article All users were got
+INFO 2021-11-28 18:33:09,994 article All articles were got
+INFO 2021-11-28 18:33:11,041 article tables were deleted
+INFO 2021-11-28 18:34:18,734 article All users were got
+INFO 2021-11-28 18:34:18,734 article All articles were got
+INFO 2021-11-28 18:34:22,563 article All articles were got
+INFO 2021-11-28 18:34:23,267 article All articles were got
+INFO 2021-11-28 18:34:24,242 article All articles were got
+INFO 2021-11-28 18:34:24,794 article All articles were got
+INFO 2021-11-28 18:34:26,043 article All articles were got
+INFO 2021-11-28 18:34:27,947 article Text articles was got
+INFO 2021-11-28 18:34:27,948 article Likes and dislikes of the article Собака were shown
+INFO 2021-11-28 18:34:36,719 article Article Собака has been edited
+INFO 2021-11-28 18:34:40,844 article Text articles was got
+INFO 2021-11-28 18:34:40,845 article Likes and dislikes of the article Уход за домашними животнами were shown
+INFO 2021-11-28 18:34:41,355 article Text articles was got
+INFO 2021-11-28 18:34:41,356 article Likes and dislikes of the article Собака were shown
+INFO 2021-11-28 18:34:42,906 article All articles were got
+INFO 2021-11-28 18:34:43,923 article All articles were got
+INFO 2021-11-28 18:34:44,963 article All articles were got
+INFO 2021-11-28 18:34:45,267 article All articles were got
+INFO 2021-11-28 18:34:46,043 article Text articles was got
+INFO 2021-11-28 18:34:46,045 article Likes and dislikes of the article Космос were shown

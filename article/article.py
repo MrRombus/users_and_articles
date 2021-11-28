@@ -273,6 +273,7 @@ class ArticleStorage:
         try:
             self._cursor.execute("""
                 SELECT nickname FROM User
+                ORDER BY id
             """)
             users = [user[0] for user in self._cursor.fetchall()]
             self._log.info('All users were got')
@@ -293,6 +294,7 @@ class ArticleStorage:
         else:
             self._cursor.execute("""
                 SELECT headline FROM Article
+                ORDER BY id
             """)
             articles = [article[0] for article in self._cursor.fetchall()]
             self._log.info('All articles were got')
