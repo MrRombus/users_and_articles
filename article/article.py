@@ -190,14 +190,22 @@ class ArticleStorage:
             self._log.warning('Table not found')
             return False
 
-    def edit_article(self, headline, new_text):
+    def edit_article(self, headline, nickname, new_text):
         id_article = self._find_article_id(headline)
+        user_id = self._find_user_id(nickname)
         self._cursor.execute("""
-            UPDATE Article SET content=? WHERE id=?
-        """, (new_text, id_article))
-        self._conn.commit()
-        self._log.info(f'Article {headline} has been edited')
-        return True
+            SELECT user_id FROM Article WHERE id=?
+        """, (id_article,))
+        #user_id_2 = self._cursor.fetchone()
+        if user_id == self._cursor.fetchone()[0]:
+            self._cursor.execute("""
+                UPDATE Article SET content=? WHERE id=?
+            """, (new_text, id_article))
+            self._conn.commit()
+            self._log.info(f'Article {headline} has been edited')
+            return True
+        else:
+            return False
 
     def add_comment(self, nickname, headline, text, date=str(datetime.datetime.now())):
         user_id = self._find_user_id(nickname)

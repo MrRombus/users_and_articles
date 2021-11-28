@@ -360,14 +360,15 @@ class ArticleWindow(Frame):
     def ed_article(self):
         if self._selected_article:
             headline = self._selected_article
+            nickname = self._registered_user
             text = self.txt_text.get("1.0","end")
             res = messagebox.askokcancel('Вопрос', 'Вы уверены?')
 
             if res:
-                if self._article_storage.edit_article(headline, text):
+                if self._article_storage.edit_article(headline, nickname, text):
                     messagebox.showinfo('Info', f'Статья {headline} была изменена')
                 else:
-                    messagebox.showerror('Error', f'Статья {headline} не может быть изменена')
+                    messagebox.showerror('Error', f'Статья {headline} не может быть изменена: вы не являетесь автором статьи')
             else:
                 messagebox.showinfo('Info', f'Статья {headline} не изменена')
         else:
