@@ -23,6 +23,14 @@ class ArticleStorage:
         """)
 
         self._cursor.execute("""
+            CREATE TABLE IF NOT EXISTS Hashes(
+                hash TEXT,
+                user_id INTEGER NOT NULL,
+                FOREIGN KEY (user_id) REFERENCES User(id)
+            )
+        """)
+
+        self._cursor.execute("""
             CREATE TABLE IF NOT EXISTS Article(
                 id INTEGER PRIMARY KEY,
                 headline TEXT UNIQUE,
@@ -109,10 +117,27 @@ class ArticleStorage:
             return False
         return True
 
-    def add_user(self, nickname, name, surname):
+    # def add_user(self, nickname, name, surname):
+    #     try:
+    #         self._cursor.execute(f"""
+    #             INSERT INTO User(nickname, name, surname) VALUES ('{nickname}', '{name}', '{surname}')
+    #         """)
+    #         self._conn.commit()
+    #         self._log.info('User was created')
+    #         return True
+    #     except sqlite3.IntegrityError:
+    #         self._log.warning('User exists!')
+    #         return False
+
+    def register_user(self, nickname, name, surname, hash):
         try:
             self._cursor.execute(f"""
                 INSERT INTO User(nickname, name, surname) VALUES ('{nickname}', '{name}', '{surname}')
+            """)
+            self._conn.commit()
+            user_id = self._find_user_id(nickname)
+            self._cursor.execute(f"""
+                INSERT INTO Hashes(hash, user_id) VALUES ('{hash}', '{user_id}')
             """)
             self._conn.commit()
             self._log.info('User was created')
@@ -120,8 +145,6 @@ class ArticleStorage:
         except sqlite3.IntegrityError:
             self._log.warning('User exists!')
             return False
-            # print('такой пользователь уже есть')
-            # raise(sqlite3.IntegrityError)
 
     def publish(self, nickname, headline, content, date=str(datetime.datetime.now())):
         try:
