@@ -1,1 +1,4 @@
-__pycache__
+__pycache__/
+data_work.log
+users_articles.log
+ArticleStorageTest.sqlite3

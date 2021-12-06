@@ -23,9 +23,17 @@ class ArticleStorage:
         """)
 
         self._cursor.execute("""
+            CREATE TABLE IF NOT EXISTS Hashes(
+                hash TEXT,
+                user_id INTEGER NOT NULL,
+                FOREIGN KEY (user_id) REFERENCES User(id)
+            )
+        """)
+
+        self._cursor.execute("""
             CREATE TABLE IF NOT EXISTS Article(
                 id INTEGER PRIMARY KEY,
-                headline TEXT,
+                headline TEXT UNIQUE,
                 content TEXT,
                 publication_date TEXT,
                 user_id INTEGER NOT NULL,
@@ -109,10 +117,27 @@ class ArticleStorage:
             return False
         return True
 
-    def add_user(self, nickname, name, surname):
+    # def add_user(self, nickname, name, surname):
+    #     try:
+    #         self._cursor.execute(f"""
+    #             INSERT INTO User(nickname, name, surname) VALUES ('{nickname}', '{name}', '{surname}')
+    #         """)
+    #         self._conn.commit()
+    #         self._log.info('User was created')
+    #         return True
+    #     except sqlite3.IntegrityError:
+    #         self._log.warning('User exists!')
+    #         return False
+
+    def register_user(self, nickname, name, surname, hash):
         try:
             self._cursor.execute(f"""
                 INSERT INTO User(nickname, name, surname) VALUES ('{nickname}', '{name}', '{surname}')
+            """)
+            self._conn.commit()
+            user_id = self._find_user_id(nickname)
+            self._cursor.execute(f"""
+                INSERT INTO Hashes(hash, user_id) VALUES ('{hash}', '{user_id}')
             """)
             self._conn.commit()
             self._log.info('User was created')
@@ -120,18 +145,20 @@ class ArticleStorage:
         except sqlite3.IntegrityError:
             self._log.warning('User exists!')
             return False
-            # print('такой пользователь уже есть')
-            # raise(sqlite3.IntegrityError)
 
     def publish(self, nickname, headline, content, date=str(datetime.datetime.now())):
-        user_id = self._find_user_id(nickname)
-        print(user_id)
-        self._cursor.execute(f"""
-            INSERT INTO Article(headline, content, publication_date, user_id) VALUES ('{headline}', '{content}', '{date}', {user_id})
-        """)
-        self._conn.commit()
-        self._log.info(f'Article {headline} is published')
-        return True
+        try:
+            user_id = self._find_user_id(nickname)
+            self._cursor.execute(f"""
+                INSERT INTO Article(headline, content, publication_date, user_id) VALUES ('{headline}', '{content}', '{date}', {user_id})
+            """)
+            self._conn.commit()
+            self._log.info(f'Article {headline} is published')
+            return True
+        except sqlite3.IntegrityError:
+            self._log.warning(f'Article {headline} already exists!')
+            return False
+        
 
     def show_articles(self, nickname=None):
         if nickname:
@@ -186,14 +213,22 @@ class ArticleStorage:
             self._log.warning('Table not found')
             return False
 
-    def edit_article(self, headline, new_text):
+    def edit_article(self, headline, nickname, new_text):
         id_article = self._find_article_id(headline)
+        user_id = self._find_user_id(nickname)
         self._cursor.execute("""
-            UPDATE Article SET content=? WHERE id=?
-        """, (new_text, id_article))
-        self._conn.commit()
-        self._log.info(f'Article {headline} has been edited')
-        return True
+            SELECT user_id FROM Article WHERE id=?
+        """, (id_article,))
+        #user_id_2 = self._cursor.fetchone()
+        if user_id == self._cursor.fetchone()[0]:
+            self._cursor.execute("""
+                UPDATE Article SET content=? WHERE id=?
+            """, (new_text, id_article))
+            self._conn.commit()
+            self._log.info(f'Article {headline} has been edited')
+            return True
+        else:
+            return False
 
     def add_comment(self, nickname, headline, text, date=str(datetime.datetime.now())):
         user_id = self._find_user_id(nickname)
@@ -261,6 +296,7 @@ class ArticleStorage:
         try:
             self._cursor.execute("""
                 SELECT nickname FROM User
+                ORDER BY id
             """)
             users = [user[0] for user in self._cursor.fetchall()]
             self._log.info('All users were got')
@@ -281,6 +317,7 @@ class ArticleStorage:
         else:
             self._cursor.execute("""
                 SELECT headline FROM Article
+                ORDER BY id
             """)
             articles = [article[0] for article in self._cursor.fetchall()]
             self._log.info('All articles were got')
